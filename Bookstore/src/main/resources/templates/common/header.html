@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:fragment="common-header">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Le's Bookstore</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link href="/css/non-responsive.css" rel="stylesheet" />
+
+    <!-- data table -->
+    <link th:href="@{/css/jquery.dataTables.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/dataTables.bootstrap.min.css}" rel="stylesheet" />
+
+
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet"/>
+
+    <link href="/image/apple-touch-icon.png" rel="icon"/>
+</head>
+
+<body>
+<div th:fragment="navbar">
+    <div class="page-top" style="width: 100%; height: 20px; background-color: #f46b42;"></div>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <!--<div class="container-fluid">-->
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/}">LE'S BOOKSTORE</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a th:href="@{/bookshelf}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">BOOKS <span class="caret"></span></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/bookshelf}">Browse the bookshelf</a>
+                        <a class="dropdown-item" th:href="@{/hours}">Store hours &#38 Directions</a>
+                        <a class="dropdown-item" th:href="@{/faq}">FAQ</a>
+                    </div>
+                </li>
+                <form class="form-inline mt-2 mt-md-0" th:action="@{/searchBook}" method="post">
+                    <input class="form-control mr-sm-2" type="text" name="keyword" placeholder="Book title"/>
+                    <button class="btn btn-default my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a class="nav-link" th:href="@{/shoppingCart/cart}">SHOPPING CART</a></li>
+                <li><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">MY ACCOUNT</a></li>
+                <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">MY ACCOUNT</a></li>
+                <li><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">LOGOUT</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+        <!--</div>&lt;!&ndash;/.container-fluid &ndash;&gt;-->
+    </nav>
+</div>
+
+<div th:fragment="footer">
+    <br/><br/>
+    <footer>
+        <div class="row">
+            <div class="col-3 footerleft">
+                <div class="logofooter">
+                    <a th:href="@{/}"><img class="img-fluid" src="/image/logo.png" style="width: 200px;"/></a>
+                </div>
+                <p>Le's Independent Book Store. <br/>Serving our customers with the best.</p>
+            </div>
+            <div class="col-3 paddingtop-bottom">
+                <h6 class="heading7">CONTACT</h6>
+                <ul class="post">
+                    <p>
+                        <i class="fa fa-map-pin"></i> 123 XXX Ave<br /> Boston MA, USA
+                        02112
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i> Phone (USA) : +1 999 999 9999
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope"></i> E-mail : info@lebookstore.com
+                    </p>
+                </ul>
+            </div>
+            <div class="col-3 paddingtop-bottom">
+                <h6 class="heading7">LINKS</h6>
+                <ul class="footer-ul">
+                    <li><a href="#"> Privacy Policy</a></li>
+                    <li><a href="#"> Terms &#38; Conditions</a></li>
+                    <li><a href="#"> Frequently Ask Questions</a></li>
+                </ul>
+            </div>
+            <div class="col-3 paddingtop-bottom">
+                <h6 class="heading7">STORE HOURS</h6>
+                <div class="post">
+                    <p>Monday - Saturday: 9am - 11pm</p>
+                    <p>Sunday: 10am - 10pm</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <div class="col-md-6">
+            <p>© 2018 - All Rights Reserved</p>
+        </div>
+        <div class="col-md-6">
+            <ul class="bottom_ul">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Faq's</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Site Map</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="body-bottom-scripts">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <script th:src="@{/js/scripts.js}"></script>
+
+    <!-- data table -->
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+</div>
+</body>
+</html>
