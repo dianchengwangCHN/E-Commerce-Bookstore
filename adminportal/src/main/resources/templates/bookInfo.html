@@ -10,7 +10,7 @@
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a th:href="@{/book/bookList}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Go back</a></li>
-            <li class="breadcrumb-item"><a th:href="@{/book/updateBook?id=}+${book.id}">Edit</a></li>
+            <li class="breadcrumb-item"><a th:href="@{/book/updateBook(id=${book.id})}">Edit</a></li>
         </ol>
     </div>
 

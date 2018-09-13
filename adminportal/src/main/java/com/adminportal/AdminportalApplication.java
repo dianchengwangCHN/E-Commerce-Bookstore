@@ -29,6 +29,8 @@ public class AdminportalApplication implements CommandLineRunner {
         user1.setUsername("admin");
         user1.setPassword(SecurityUtility.passwordEncoder().encode("admin"));
         user1.setEmail("admin@gmail.com");
+        user1.setFirstName("Admin");
+        user1.setLastName("Admin");
         Set<UserRole> userRoles = new HashSet<>();
         Role role1 = new Role();
         role1.setRoleId(0);

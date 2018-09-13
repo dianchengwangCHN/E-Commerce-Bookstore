@@ -5,10 +5,7 @@ import com.adminportal.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -74,17 +71,20 @@ public class BookController {
 
         MultipartFile bookImage = book.getBookImage();
 
-        try {
-            byte[] bytes = bookImage.getBytes();
-            String name = book.getId()+".png";
+        if(!bookImage.isEmpty()) {
+            try {
+                byte[] bytes = bookImage.getBytes();
+                String name = book.getId() + ".png";
 
-            Files.delete(Paths.get("src/main/resources/static/image/book/"+name));
+                Files.delete(Paths.get("src/main/resources/static/image/book/"+name));
 
-            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("src/main/resources/static/image/book/"+name)));
-            stream.write(bytes);
-            stream.close();
-        } catch(Exception e) {
-            e.printStackTrace();
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(new File("src/main/resources/static/image/book/" + name)));
+                stream.write(bytes);
+                stream.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         return "redirect:/book/bookInfo?id="+book.getId();
