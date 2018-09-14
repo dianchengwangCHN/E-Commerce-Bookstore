@@ -39,7 +39,7 @@
                 <h5 style="font-style: italic;">Oops, no result is found. Try something else or try again later.</h5>
             </div>
 
-            <table border="0" id="bookList">
+            <table border="0" id="bookList" class="dataTable no-footer">
                 <thead><tr><th></th></tr></thead>
                 <tbody>
                 <tr class="book-item" data-th-each="book : ${bookList}">
@@ -83,7 +83,7 @@
 <script>
     $(document).ready(function() {
         $('#bookList').DataTable({
-            "lengthMenu": [ [5,10,15,20,-1],[5,10,15,20,"All"] ],
+            "lengthMenu": [ [5,10,15,20,-1], [5,10,15,20,"All"] ],
             "ordering": false,
             stateSave: true
         });
