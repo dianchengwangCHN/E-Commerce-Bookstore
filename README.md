@@ -7,6 +7,9 @@ Bootstrap
 ### Back-end:
 Spring Boot, Hibernate, MySQL
 
+### Tools:
+Maven, Docker, AWS
+
 ## Functionalities implemented:
 ### For users:
 1. User registration and log in.
