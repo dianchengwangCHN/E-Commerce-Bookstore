@@ -1,0 +1,51 @@
+version: "2"
+
+services:
+  # database
+  demo-mysql:
+    image: mysql:5.5
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      site:
+        aliases:
+          - mysql
+          - demo-mysql
+    environment:
+      MYSQL_DATABASE: bookstoredatabase
+      MYSQL_ROOT_PASSWORD: 123456
+    mem_limit: 300M
+
+  # adminPortal
+  admin-portal:
+    depends_on:
+      - demo-mysql
+    image: admin-portal
+    restart: always
+    networks:
+      site:
+        aliases:
+          - admin
+          - admin-portal
+    ports:
+      - "8081:8081"
+    mem_limit: 250M
+
+  # bookstore
+  bookstore:
+    depends_on:
+      - demo-mysql
+      - admin-portal
+    image: bookstore
+    restart: always
+    networks:
+      site:
+        aliases:
+          - store
+    ports:
+      - "8080:8080"
+      - "80:80"
+networks:
+  site:
+    driver: bridge
