@@ -1,13 +1,13 @@
 # E-Commerce-Bookstore
-This project is built following the Udemy online course Complete E-Commerce: Java, Spring and Hibernate. The main techniques invloved in this project are following:
+This project is built following the Udemy online course Complete E-Commerce: Java, Spring Boot and Hibernate. This project consists of two parts: the user side and the admin portal. The demo of user side is deployed on [AWS](http://ec2-3-94-88-44.compute-1.amazonaws.com:8080). The main techniques involved in this project are following:
 
 ### Front-end:
 Bootstrap
 
 ### Back-end:
-Spring boot, MySQL
+Spring Boot, Hibernate, MySQL
 
-## Functions implemented so far:
+## Functionalities implemented:
 ### For users:
 1. User registration and log in.
 2. User information management.
@@ -16,11 +16,9 @@ Spring boot, MySQL
 ### For administrator:
 1. Book information management.
 
-## Main Functions demo:
+## Screenshots:
 ### Home page:
 ![](screenshot/homePage.png?raw=true)
 
-### User log in page:
-![](screenshot/userAccount.png?raw=true)
 ### Bookshelf:
 ![](screenshot/bookShelf.png?raw=true)
