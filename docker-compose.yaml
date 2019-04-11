@@ -13,8 +13,8 @@ services:
           - mysql
           - demo-mysql
     environment:
-      MYSQL_DATABASE: bookstoredatabase
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_ROOT_PASSWORD: $DB_PASSWORD
     mem_limit: 300M
 
   # adminPortal
@@ -30,6 +30,15 @@ services:
           - admin-portal
     ports:
       - "8081:8081"
+    environment:
+      PROTOCOL: $PROTOCOL
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_NAME: $DB_NAME
+      DB_USERNAME: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+      EMAIL_USERNAME: $EMAIL_USERNAME
+      EMAIL_PASSWORD: $EMAIL_PASSWORD
     mem_limit: 250M
 
   # bookstore
@@ -45,7 +54,18 @@ services:
           - store
     ports:
       - "8080:8080"
-      - "80:80"
+    environment:
+      PROTOCOL: $PROTOCOL
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_NAME: $DB_NAME
+      DB_USERNAME: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+      EMAIL_USERNAME: $EMAIL_USERNAME
+      EMAIL_PASSWORD: $EMAIL_PASSWORD
+      ADMIN_HOST: $ADMIN_HOST
+      ADMIN_PORT: $ADMIN_PORT
+    mem_limit: 300M
 networks:
   site:
     driver: bridge
