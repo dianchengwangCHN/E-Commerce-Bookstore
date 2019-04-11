@@ -1,7 +1,7 @@
 # E-Commerce-Bookstore
 This project is built following the Udemy online course Complete E-Commerce: Java, Spring Boot and Hibernate. This project consists of two parts: the user side and the admin portal. 
 
-**The demo of the user side is deployed on [AWS](http://ec2-3-94-88-44.compute-1.amazonaws.com:8080)**. (Free tier expired. Not available now.)
+**The demo of the user side is deployed on [Azure](http://dcw-bookstore-demo.eastus2.cloudapp.azure.com:8080)**. 
 
 The main techniques involved in this project are following:
 
@@ -12,7 +12,7 @@ Bootstrap
 Spring Boot, Hibernate, MySQL
 
 ### Tools:
-Maven, Docker, AWS
+Maven, Docker, Azure Virtual Machine
 
 ## Functionalities implemented:
 ### For users:
